@@ -17,7 +17,7 @@ const roles = {
   },
   S: {
     name: "Slides",
-    emoji: "\u{1F4FD}\uFE0F",
+    emoji: "\u{1F4CA}",
     color: "from-blue-500 to-blue-700",
     description: "Collecting slides, timekeeping, managing the screen",
   },
