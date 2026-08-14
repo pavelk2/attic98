@@ -1,10 +1,11 @@
-import { Suspense } from "react";
-import ScreenContent from "./ScreenContent";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const ScreenContent = dynamic(() => import("./ScreenContent"), {
+  ssr: false,
+});
 
 export default function ScreenPage() {
-  return (
-    <Suspense fallback={null}>
-      <ScreenContent />
-    </Suspense>
-  );
+  return <ScreenContent />;
 }

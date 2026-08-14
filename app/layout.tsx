@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Attic 98 - Monthly Friends for Friends Conference",
-  description: "Role guide for the Attic 98 monthly conference",
+  title: "Attic98 - Home Conference",
+  description: "Role guide for the Attic98 Home Conference",
 };
 
 export default function RootLayout({
