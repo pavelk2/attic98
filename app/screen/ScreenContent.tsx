@@ -55,7 +55,7 @@ export default function ScreenContent() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-14 max-w-5xl">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text text-transparent drop-shadow-sm">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-sm">
           <span className="block">Welcome to</span>
           <span className="block">
             Home Conference{number ? ` #${number}` : ""}
@@ -63,7 +63,7 @@ export default function ScreenContent() {
         </h1>
 
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center justify-center">
-          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
+          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px]">
             <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center">
               {whatsappQr ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -76,12 +76,10 @@ export default function ScreenContent() {
                 <div className="w-full h-full animate-pulse bg-slate-200 rounded-xl" />
               )}
             </div>
-            <p className="text-xl font-semibold">
-              {"\u{1F4AC}"} Join the WhatsApp group
-            </p>
+            <p className="text-xl font-semibold">Join the WhatsApp group</p>
           </div>
 
-          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
+          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px]">
             <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center">
               {slidesQr ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -94,9 +92,7 @@ export default function ScreenContent() {
                 <div className="w-full h-full animate-pulse bg-slate-200 rounded-xl" />
               )}
             </div>
-            <p className="text-xl font-semibold">
-              {"\u{1F4CA}"} Upload your slides
-            </p>
+            <p className="text-xl font-semibold">Upload your slides</p>
           </div>
         </div>
       </div>
