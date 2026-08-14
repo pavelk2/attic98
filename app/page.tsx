@@ -49,7 +49,15 @@ const roles = {
 
 type RoleKey = keyof typeof roles;
 
-const schedule = [
+type ScheduleItem = {
+  role: RoleKey;
+  time: string;
+  action: string;
+  phase: "setup" | "arrival" | "main" | "break" | "closing";
+  subtasks?: string[];
+};
+
+const schedule: ScheduleItem[] = [
   {
     role: "H" as RoleKey,
     time: "4:00 - 4:30pm",
@@ -104,6 +112,12 @@ const schedule = [
     time: "8:30 - 9:00pm",
     action: "Closing session & asking for feedback",
     phase: "closing" as const,
+    subtasks: [
+      "Ask everyone to join the WhatsApp group",
+      "Ask for feedback",
+      "Ask who wants to host the next 2 sessions",
+      "Ask what the right date is for the next event",
+    ],
   },
   {
     role: "F" as RoleKey,
@@ -258,12 +272,21 @@ export default function Attic98Guide() {
               {getTasksForRole(selectedRole).scheduled.map((task, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 py-2 border-b border-white/10 last:border-0"
+                  className="py-2 border-b border-white/10 last:border-0"
                 >
-                  <span className="text-sm font-mono bg-black/30 px-2 py-1 rounded">
-                    {task.time}
-                  </span>
-                  <span>{task.action}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-mono bg-black/30 px-2 py-1 rounded">
+                      {task.time}
+                    </span>
+                    <span>{task.action}</span>
+                  </div>
+                  {task.subtasks && (
+                    <ul className="mt-2 ml-4 space-y-1 list-disc list-inside text-white/80 text-sm">
+                      {task.subtasks.map((subtask, j) => (
+                        <li key={j}>{subtask}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
               {getTasksForRole(selectedRole).continuous && (
@@ -342,17 +365,26 @@ export default function Attic98Guide() {
             {schedule.map((item, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-4 p-3 rounded-lg transition-all ${phaseColors[item.phase]} ${
+                className={`p-3 rounded-lg transition-all ${phaseColors[item.phase]} ${
                   selectedRole && selectedRole !== item.role
                     ? "opacity-20"
                     : ""
                 }`}
               >
-                <span className="font-mono text-sm bg-black/30 px-3 py-1 rounded-full whitespace-nowrap min-w-[120px] text-center">
-                  {item.time}
-                </span>
-                <span className="text-2xl">{roles[item.role].emoji}</span>
-                <span className="flex-1">{item.action}</span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-sm bg-black/30 px-3 py-1 rounded-full whitespace-nowrap min-w-[120px] text-center">
+                    {item.time}
+                  </span>
+                  <span className="text-2xl">{roles[item.role].emoji}</span>
+                  <span className="flex-1">{item.action}</span>
+                </div>
+                {item.subtasks && (
+                  <ul className="mt-2 ml-[152px] space-y-1 list-disc list-inside text-white/80 text-sm">
+                    {item.subtasks.map((subtask, j) => (
+                      <li key={j}>{subtask}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
