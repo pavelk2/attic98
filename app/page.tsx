@@ -14,8 +14,7 @@ export default function Home() {
         </header>
 
         <section className="mb-20">
-          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
-            <span className="w-6 h-px bg-black" />
+          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6">
             Concept
           </h2>
           <div className="space-y-5 text-neutral-800 leading-relaxed">
@@ -47,8 +46,7 @@ export default function Home() {
         </section>
 
         <section className="mb-20">
-          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
-            <span className="w-6 h-px bg-black" />
+          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6">
             Format
           </h2>
           <p className="text-neutral-800 leading-relaxed mb-6">
@@ -95,8 +93,7 @@ export default function Home() {
         </section>
 
         <section className="border-t-2 border-black pt-10">
-          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
-            <span className="w-6 h-px bg-black" />
+          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6">
             How to join?
           </h2>
           <p className="text-2xl font-serif italic leading-snug">
