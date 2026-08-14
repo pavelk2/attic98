@@ -44,14 +44,14 @@ export default function ScreenContent() {
   const slidesQr = useQrCode(SLIDES_FOLDER_URL);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-white flex flex-col items-center justify-center p-10">
-      {/* Gradient blobs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[45vw] h-[45vw] bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-blob" />
-        <div className="absolute top-[10%] right-[-15%] w-[50vw] h-[50vw] bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-[-15%] left-[10%] w-[45vw] h-[45vw] bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-blob animation-delay-4000" />
-        <div className="absolute bottom-[-10%] right-[5%] w-[35vw] h-[35vw] bg-amber-400 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-6000" />
-      </div>
+    <div
+      className="relative min-h-screen overflow-hidden bg-slate-950 text-white flex flex-col items-center justify-center p-10 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/c60b800f-c47a-4cd7-80ee-8ca489f97a0d.png')",
+      }}
+    >
+      {/* Dark scrim for legibility over the background image */}
+      <div className="pointer-events-none absolute inset-0 bg-black/45" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-14 max-w-5xl">
