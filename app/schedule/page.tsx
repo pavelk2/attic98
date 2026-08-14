@@ -6,43 +6,36 @@ const roles = {
   H: {
     name: "Host",
     emoji: "\u{1F3A4}",
-    color: "from-purple-500 to-purple-700",
     description: "The host - leads the event",
   },
   W: {
     name: "Welcome",
     emoji: "\u{1F44B}",
-    color: "from-green-500 to-green-700",
     description: "Welcoming guests, checking in, managing intercom",
   },
   S: {
     name: "Slides",
     emoji: "\u{1F4CA}",
-    color: "from-blue-500 to-blue-700",
     description: "Collecting slides, timekeeping, managing the screen",
   },
   D: {
     name: "Drinks",
     emoji: "\u{1F37A}",
-    color: "from-amber-500 to-amber-700",
     description: "Responsible for drinks throughout the event",
   },
   F: {
     name: "Food",
     emoji: "\u{1F355}",
-    color: "from-red-500 to-red-700",
     description: "Responsible for food and snacks",
   },
   P: {
     name: "Photo",
     emoji: "\u{1F4F8}",
-    color: "from-pink-500 to-pink-700",
     description: "Capturing moments throughout the event",
   },
   M: {
     name: "Music",
     emoji: "\u{1F3B5}",
-    color: "from-indigo-500 to-indigo-700",
     description: "Managing music and lights",
   },
 };
@@ -144,7 +137,7 @@ const preEvent = [
   },
   {
     time: "T-1 week",
-    action: "If less than 5 people book \u2192 cancel event",
+    action: "If less than 5 people book → cancel event",
     owner: "Organizer",
   },
   {
@@ -165,12 +158,15 @@ const postEvent = [
   { time: "T+7 days", action: "Announce the next event" },
 ];
 
-const phaseColors: Record<string, string> = {
-  setup: "bg-slate-700",
-  arrival: "bg-green-900",
-  main: "bg-blue-900",
-  break: "bg-amber-900",
-  closing: "bg-purple-900",
+const phaseStyles: Record<string, { container: string; dark: boolean }> = {
+  setup: { container: "bg-neutral-100", dark: false },
+  arrival: { container: "bg-neutral-200", dark: false },
+  main: { container: "bg-black text-white", dark: true },
+  break: {
+    container: "bg-neutral-100 border border-dashed border-neutral-400",
+    dark: false,
+  },
+  closing: { container: "bg-white border-2 border-black", dark: false },
 };
 
 export default function Attic98Guide() {
@@ -184,12 +180,14 @@ export default function Attic98Guide() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white p-6">
+    <div className="min-h-screen bg-white text-black p-6">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2">Attic 98</h1>
-          <p className="text-slate-400 text-lg">
+        <div className="text-center mb-10 border-b-2 border-black pb-8">
+          <h1 className="text-4xl font-black tracking-tight mb-2">
+            Attic 98
+          </h1>
+          <p className="text-neutral-500 text-sm uppercase tracking-[0.3em]">
             Monthly Friends for Friends Conference
           </p>
         </div>
@@ -207,10 +205,10 @@ export default function Attic98Guide() {
                   onClick={() =>
                     setSelectedRole(selectedRole === key ? null : key)
                   }
-                  className={`px-4 py-3 rounded-xl font-medium transition-all transform hover:scale-105 ${
+                  className={`px-4 py-3 rounded-xl font-medium transition-all transform hover:scale-105 border-2 ${
                     selectedRole === key
-                      ? `bg-gradient-to-r ${role.color} shadow-lg`
-                      : "bg-slate-800 hover:bg-slate-700"
+                      ? "bg-black text-white border-black shadow-lg"
+                      : "bg-white text-neutral-700 border-neutral-300 hover:border-black"
                   }`}
                 >
                   <span className="text-xl mr-2">{role.emoji}</span>
@@ -220,10 +218,10 @@ export default function Attic98Guide() {
             )}
             <button
               onClick={() => setSelectedRole(null)}
-              className={`px-4 py-3 rounded-xl font-medium transition-all ${
+              className={`px-4 py-3 rounded-xl font-medium transition-all border-2 ${
                 selectedRole === null
-                  ? "bg-white text-slate-900"
-                  : "bg-slate-800 hover:bg-slate-700"
+                  ? "bg-black text-white border-black"
+                  : "bg-white text-neutral-700 border-neutral-300 hover:border-black"
               }`}
             >
               {"\u{1F4CB}"} All Roles
@@ -233,27 +231,25 @@ export default function Attic98Guide() {
 
         {/* Selected Role Card */}
         {selectedRole && (
-          <div
-            className={`mb-8 p-6 rounded-2xl bg-gradient-to-r ${roles[selectedRole].color} shadow-xl`}
-          >
+          <div className="mb-8 p-6 rounded-2xl bg-black text-white shadow-xl">
             <div className="flex items-center gap-4 mb-4">
               <span className="text-5xl">{roles[selectedRole].emoji}</span>
               <div>
                 <h3 className="text-2xl font-bold">
                   {roles[selectedRole].name}
                 </h3>
-                <p className="text-white/80">
+                <p className="text-white/70">
                   {roles[selectedRole].description}
                 </p>
               </div>
             </div>
 
             {/* Tasks for this role */}
-            <div className="bg-black/20 rounded-xl p-4 mt-4">
+            <div className="bg-white/10 rounded-xl p-4 mt-4">
               <h4 className="font-semibold mb-3">Your Tasks:</h4>
               {getTasksForRole(selectedRole).pre.length > 0 && (
                 <div className="mb-3">
-                  <span className="text-xs uppercase tracking-wide text-white/60">
+                  <span className="text-xs uppercase tracking-wide text-white/50">
                     Before Event
                   </span>
                   {getTasksForRole(selectedRole).pre.map((task, i) => (
@@ -261,7 +257,7 @@ export default function Attic98Guide() {
                       key={i}
                       className="flex items-center gap-3 py-2 border-b border-white/10 last:border-0"
                     >
-                      <span className="text-sm font-mono bg-black/30 px-2 py-1 rounded">
+                      <span className="text-sm font-mono bg-white/15 px-2 py-1 rounded">
                         {task.time}
                       </span>
                       <span>{task.action}</span>
@@ -275,13 +271,13 @@ export default function Attic98Guide() {
                   className="py-2 border-b border-white/10 last:border-0"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-sm font-mono bg-black/30 px-2 py-1 rounded">
+                    <span className="text-sm font-mono bg-white/15 px-2 py-1 rounded">
                       {task.time}
                     </span>
                     <span>{task.action}</span>
                   </div>
                   {task.subtasks && (
-                    <ul className="mt-2 ml-4 space-y-1 list-disc list-inside text-white/80 text-sm">
+                    <ul className="mt-2 ml-4 space-y-1 list-disc list-inside text-white/70 text-sm">
                       {task.subtasks.map((subtask, j) => (
                         <li key={j}>{subtask}</li>
                       ))}
@@ -291,7 +287,7 @@ export default function Attic98Guide() {
               ))}
               {getTasksForRole(selectedRole).continuous && (
                 <div className="flex items-center gap-3 py-2 mt-2 bg-white/10 rounded-lg px-3">
-                  <span className="text-sm font-mono bg-black/30 px-2 py-1 rounded">
+                  <span className="text-sm font-mono bg-white/15 px-2 py-1 rounded">
                     Always
                   </span>
                   <span>
@@ -304,7 +300,7 @@ export default function Attic98Guide() {
         )}
 
         {/* Pre-Event Checklist */}
-        <div className="mb-8 bg-slate-800 rounded-2xl p-6">
+        <div className="mb-8 bg-white border-2 border-black rounded-2xl p-6">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
             {"\u{1F4C5}"} Before the Event
           </h2>
@@ -312,7 +308,7 @@ export default function Attic98Guide() {
             {preEvent.map((item, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-4 p-3 rounded-lg bg-slate-700/50 ${
+                className={`flex items-center gap-4 p-3 rounded-lg bg-neutral-50 border border-neutral-200 ${
                   selectedRole &&
                   item.owner !== selectedRole &&
                   item.owner !== "Organizer"
@@ -320,7 +316,7 @@ export default function Attic98Guide() {
                     : ""
                 }`}
               >
-                <span className="font-mono text-sm bg-slate-600 px-3 py-1 rounded-full whitespace-nowrap">
+                <span className="font-mono text-sm bg-black text-white px-3 py-1 rounded-full whitespace-nowrap">
                   {item.time}
                 </span>
                 <span className="flex-1">{item.action}</span>
@@ -335,19 +331,19 @@ export default function Attic98Guide() {
         </div>
 
         {/* Event Day Timeline */}
-        <div className="mb-8 bg-slate-800 rounded-2xl p-6">
+        <div className="mb-8 bg-white border-2 border-black rounded-2xl p-6">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
             {"\u{1F3AF}"} Event Day Timeline
           </h2>
 
           {/* Continuous roles banner */}
-          <div className="mb-4 p-4 bg-gradient-to-r from-slate-700 to-slate-600 rounded-xl">
-            <p className="text-sm text-slate-300 mb-2">Always active:</p>
+          <div className="mb-4 p-4 bg-neutral-100 border border-neutral-300 rounded-xl">
+            <p className="text-sm text-neutral-600 mb-2">Always active:</p>
             <div className="flex flex-wrap gap-3">
               {continuousRoles.map((item, i) => (
                 <span
                   key={i}
-                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 ${
+                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/20 ${
                     selectedRole && selectedRole !== item.role
                       ? "opacity-30"
                       : ""
@@ -362,46 +358,57 @@ export default function Attic98Guide() {
 
           {/* Scheduled tasks */}
           <div className="space-y-2">
-            {schedule.map((item, i) => (
-              <div
-                key={i}
-                className={`p-3 rounded-lg transition-all ${phaseColors[item.phase]} ${
-                  selectedRole && selectedRole !== item.role
-                    ? "opacity-20"
-                    : ""
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm bg-black/30 px-3 py-1 rounded-full whitespace-nowrap min-w-[120px] text-center">
-                    {item.time}
-                  </span>
-                  <span className="text-2xl">{roles[item.role].emoji}</span>
-                  <span className="flex-1">{item.action}</span>
+            {schedule.map((item, i) => {
+              const style = phaseStyles[item.phase];
+              return (
+                <div
+                  key={i}
+                  className={`p-3 rounded-lg transition-all ${style.container} ${
+                    selectedRole && selectedRole !== item.role
+                      ? "opacity-20"
+                      : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <span
+                      className={`font-mono text-sm px-3 py-1 rounded-full whitespace-nowrap min-w-[120px] text-center ${
+                        style.dark ? "bg-white/15" : "bg-black/10"
+                      }`}
+                    >
+                      {item.time}
+                    </span>
+                    <span className="text-2xl">{roles[item.role].emoji}</span>
+                    <span className="flex-1">{item.action}</span>
+                  </div>
+                  {item.subtasks && (
+                    <ul
+                      className={`mt-2 ml-[152px] space-y-1 list-disc list-inside text-sm ${
+                        style.dark ? "text-white/70" : "text-neutral-600"
+                      }`}
+                    >
+                      {item.subtasks.map((subtask, j) => (
+                        <li key={j}>{subtask}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                {item.subtasks && (
-                  <ul className="mt-2 ml-[152px] space-y-1 list-disc list-inside text-white/80 text-sm">
-                    {item.subtasks.map((subtask, j) => (
-                      <li key={j}>{subtask}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* Post-Event */}
-        <div className="bg-slate-800 rounded-2xl p-6">
+        <div className="bg-white border-2 border-black rounded-2xl p-6">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            {"\u2705"} After the Event
+            {"✅"} After the Event
           </h2>
           <div className="space-y-3">
             {postEvent.map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-4 p-3 rounded-lg bg-slate-700/50"
+                className="flex items-center gap-4 p-3 rounded-lg bg-neutral-50 border border-neutral-200"
               >
-                <span className="font-mono text-sm bg-slate-600 px-3 py-1 rounded-full whitespace-nowrap">
+                <span className="font-mono text-sm bg-black text-white px-3 py-1 rounded-full whitespace-nowrap">
                   {item.time}
                 </span>
                 <span className="flex-1">{item.action}</span>
@@ -411,7 +418,7 @@ export default function Attic98Guide() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-slate-500 mt-8 text-sm">
+        <p className="text-center text-neutral-500 mt-8 text-sm">
           Questions? Reach out in the organizer group chat {"\u{1F4AC}"}
         </p>
       </div>

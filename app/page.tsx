@@ -1,19 +1,24 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
-      <div className="max-w-2xl mx-auto px-6 py-20">
-        <header className="mb-16">
-          <h1 className="text-4xl font-bold mb-2">
-            Attic 98 - House Conference
+    <div className="min-h-screen bg-white text-black">
+      <div className="max-w-2xl mx-auto px-6 py-24">
+        <header className="mb-20 border-b-2 border-black pb-8">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[0.95] mb-4">
+            Attic 98
+            <br />
+            House Conference
           </h1>
-          <p className="text-slate-400 text-lg">Friends of Friends only.</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
+            Friends of Friends only.
+          </p>
         </header>
 
-        <section className="mb-16">
-          <h2 className="text-sm font-semibold tracking-widest text-slate-500 uppercase mb-6">
+        <section className="mb-20">
+          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
+            <span className="w-6 h-px bg-black" />
             Concept
           </h2>
-          <div className="space-y-5 text-slate-200 leading-relaxed">
+          <div className="space-y-5 text-neutral-800 leading-relaxed">
             <p>
               While I was in Berlin, I attended a house conference called
               Prenztorium (Prenzlauer Berg + Lectorium). It is a community of
@@ -41,44 +46,45 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-          <h2 className="text-sm font-semibold tracking-widest text-slate-500 uppercase mb-6">
+        <section className="mb-20">
+          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
+            <span className="w-6 h-px bg-black" />
             Format
           </h2>
-          <p className="text-slate-200 leading-relaxed mb-6">
+          <p className="text-neutral-800 leading-relaxed mb-6">
             This house conference will only fit 25 people. Think about one
             person you believe will be a great addition to this community.
             Invite them.
           </p>
-          <ul className="space-y-3 text-slate-200 leading-relaxed">
+          <ul className="space-y-3 text-neutral-800 leading-relaxed">
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>15 EUR for food and drinks</span>
             </li>
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>
                 Unless communicated, there is no limit on the topic of the
                 talks
               </span>
             </li>
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>
                 Strict 5+3 min for the talk and questions (we will have one
                 person doing time keeping)
               </span>
             </li>
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>6pm sharp we start the first batch of speakers</span>
             </li>
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>7pm sharp we start the second batch of speakers</span>
             </li>
             <li className="flex gap-3">
-              <span className="text-slate-500">&bull;</span>
+              <span className="text-black">&mdash;</span>
               <span>
                 When speakers present we turn off the intercom, and late
                 people can not come in (so don&rsquo;t be late, and if you
@@ -88,11 +94,12 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="mt-16">
-          <h2 className="text-sm font-semibold tracking-widest text-slate-500 uppercase mb-6">
+        <section className="border-t-2 border-black pt-10">
+          <h2 className="flex items-center gap-3 text-xs font-bold tracking-[0.3em] uppercase mb-6">
+            <span className="w-6 h-px bg-black" />
             How to join?
           </h2>
-          <p className="text-slate-200 leading-relaxed">
+          <p className="text-2xl font-serif italic leading-snug">
             The only way to join is to know someone who is already a part of
             the community, and be invited by them.
           </p>
