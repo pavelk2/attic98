@@ -63,8 +63,8 @@ export default function ScreenContent() {
         </h1>
 
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center justify-center">
-          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px]">
-            <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px] h-[340px]">
+            <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center shrink-0">
               {whatsappQr ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -76,11 +76,13 @@ export default function ScreenContent() {
                 <div className="w-full h-full animate-pulse bg-slate-200 rounded-xl" />
               )}
             </div>
-            <p className="text-xl font-semibold">Join the WhatsApp group</p>
+            <div className="flex-1 flex items-center justify-center">
+              <p className="text-xl font-semibold">Join the WhatsApp group</p>
+            </div>
           </div>
 
-          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px]">
-            <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl w-[300px] h-[340px]">
+            <div className="bg-white rounded-2xl p-4 w-[220px] h-[220px] flex items-center justify-center shrink-0">
               {slidesQr ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -92,7 +94,9 @@ export default function ScreenContent() {
                 <div className="w-full h-full animate-pulse bg-slate-200 rounded-xl" />
               )}
             </div>
-            <p className="text-xl font-semibold">Upload your slides</p>
+            <div className="flex-1 flex items-center justify-center">
+              <p className="text-xl font-semibold">Upload your slides</p>
+            </div>
           </div>
         </div>
       </div>
