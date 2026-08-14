@@ -3,7 +3,9 @@ export default function Home() {
     <div className="min-h-screen bg-slate-900 text-white">
       <div className="max-w-2xl mx-auto px-6 py-20">
         <header className="mb-16">
-          <h1 className="text-4xl font-bold mb-2">House Conference</h1>
+          <h1 className="text-4xl font-bold mb-2">
+            Attic 98 - House Conference
+          </h1>
           <p className="text-slate-400 text-lg">Friends of Friends only.</p>
         </header>
 
@@ -84,6 +86,16 @@ export default function Home() {
               </span>
             </li>
           </ul>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-sm font-semibold tracking-widest text-slate-500 uppercase mb-6">
+            How to join?
+          </h2>
+          <p className="text-slate-200 leading-relaxed">
+            The only way to join is to know someone who is already a part of
+            the community, and be invited by them.
+          </p>
         </section>
       </div>
     </div>
