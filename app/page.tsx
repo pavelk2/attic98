@@ -4,9 +4,9 @@ export default function Home() {
       <div className="max-w-2xl mx-auto px-6 py-24">
         <header className="mb-20 border-b-2 border-black pb-8">
           <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[0.95] mb-4">
-            Attic 98
+            Attic98
             <br />
-            House Conference
+            Home Conference
           </h1>
           <p className="text-sm uppercase tracking-[0.3em] text-neutral-500">
             Friends of Friends only.
@@ -57,34 +57,34 @@ export default function Home() {
             Invite them.
           </p>
           <ul className="space-y-3 text-neutral-800 leading-relaxed">
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>15 EUR for food and drinks</span>
             </li>
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>
                 Unless communicated, there is no limit on the topic of the
                 talks
               </span>
             </li>
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>
                 Strict 5+3 min for the talk and questions (we will have one
                 person doing time keeping)
               </span>
             </li>
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>6pm sharp we start the first batch of speakers</span>
             </li>
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>7pm sharp we start the second batch of speakers</span>
             </li>
-            <li className="flex gap-3">
-              <span className="text-black">&mdash;</span>
+            <li className="flex gap-3 items-start">
+              <span className="mt-2.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
               <span>
                 When speakers present we turn off the intercom, and late
                 people can not come in (so don&rsquo;t be late, and if you
