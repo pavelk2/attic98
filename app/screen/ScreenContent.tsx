@@ -31,7 +31,14 @@ function useQrCode(url: string) {
 
 export default function ScreenContent() {
   const searchParams = useSearchParams();
-  const number = searchParams.get("number") ?? searchParams.get("n");
+  const [hashNumber, setHashNumber] = useState<string | null>(null);
+
+  useEffect(() => {
+    setHashNumber(window.location.hash.replace(/^#/, "") || null);
+  }, []);
+
+  const number =
+    searchParams.get("number") ?? searchParams.get("n") ?? hashNumber;
 
   const whatsappQr = useQrCode(WHATSAPP_URL);
   const slidesQr = useQrCode(SLIDES_FOLDER_URL);
