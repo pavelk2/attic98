@@ -31,11 +31,11 @@ function useQrCode(url: string) {
 
 export default function ScreenContent() {
   const searchParams = useSearchParams();
-  const [hashNumber, setHashNumber] = useState<string | null>(null);
-
-  useEffect(() => {
-    setHashNumber(window.location.hash.replace(/^#/, "") || null);
-  }, []);
+  const [hashNumber] = useState<string | null>(() =>
+    typeof window === "undefined"
+      ? null
+      : window.location.hash.replace(/^#/, "") || null
+  );
 
   const number =
     searchParams.get("number") ?? searchParams.get("n") ?? hashNumber;
