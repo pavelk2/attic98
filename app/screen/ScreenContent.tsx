@@ -49,7 +49,10 @@ export default function ScreenContent() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-14 max-w-5xl">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200 bg-clip-text text-transparent drop-shadow-sm">
-          Welcome to Home Conference{number ? ` #${number}` : ""}
+          <span className="block">Welcome to</span>
+          <span className="block">
+            Home Conference{number ? ` #${number}` : ""}
+          </span>
         </h1>
 
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center justify-center">
